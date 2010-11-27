@@ -5,7 +5,7 @@ CONFIG_FILES = \
 	config/missing \
 	config/mkinstalldirs
 
-EXTRA_DIST = \
+EXTRA_DIST = config/config.rpath m4/ChangeLog  \
 	$(CONFIG_FILES) \
 	NOTES \
 	TODO \
@@ -13,4 +13,6 @@ EXTRA_DIST = \
 	fsv.spec.in \
 	fsv.wmconfig
 
-SUBDIRS = debug doc intl lib po src
+SUBDIRS = debug doc lib po src
+
+ACLOCAL_AMFLAGS = -I m4

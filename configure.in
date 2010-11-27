@@ -1,10 +1,11 @@
 dnl configure.in
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(src/fsv.c)
+AC_INIT
+AC_CONFIG_SRCDIR([src/fsv.c])
 AC_CONFIG_AUX_DIR(config)
 
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS([config.h])
 
 PACKAGE=fsv
 VERSION=0.9
@@ -22,7 +23,7 @@ AC_PROG_CC
 AC_PROG_CPP
 AC_PROG_RANLIB
 
-AC_ISC_POSIX
+AC_SEARCH_LIBS([strerror],[cposix])
 
 # Header files
 #
@@ -68,7 +69,7 @@ fi
 # Internationalization
 #
 ALL_LINGUAS=""
-AM_GNU_GETTEXT
+AM_GNU_GETTEXT([external])
 
 # Locale directory
 #
@@ -156,13 +157,13 @@ fi
 
 # That's a wrap!
 #
-AC_OUTPUT(fsv.spec
+AC_CONFIG_FILES([fsv.spec
 	Makefile
 	debug/Makefile
 	doc/Makefile
-	intl/Makefile
 	lib/Makefile
 	po/Makefile.in
-	src/Makefile)
+	src/Makefile])
+AC_OUTPUT
 
 dnl end configure.in
